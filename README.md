@@ -7,6 +7,6 @@ data.csv -> origem dos dados
 querys_file -> directory of generated sql
 
 # How to use
-git clone https://github.com/MrHanaute/CSV_to_SQL.git \n
-cd CSV_to_SQL \n
-python index.py\n
+git clone https://github.com/MrHanaute/CSV_to_SQL.git <br/>
+cd CSV_to_SQL <br/>
+python index.py <br/>

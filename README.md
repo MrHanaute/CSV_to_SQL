@@ -1,4 +1,5 @@
-# CSV_to_SQL <sup>python version: 3.6<sup/>
+# CSV_to_SQL
+<sup>python version: 3.6<sup/>
 generator sql by JSON config and data CSV in Python!
 
 config.json -> contains configuration array with name of the database columns

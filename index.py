@@ -42,7 +42,7 @@ for key, value in enumerate(config):
 _str_insert = _str_insert + ")"
 
 for dc in data_csv:
-    final_query = " VALUE ("
+    final_query = " VALUES ("
     for key, q_s in enumerate(dc):
         if key != 0:
             final_query = final_query + ',' + q_s

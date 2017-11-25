@@ -5,7 +5,7 @@ import os.path
 
 from pathlib import Path
 
-from providers.Converter import Converter
+# from providers.Converter import Converter
 
 config = json.load(open('./config.json'))
 

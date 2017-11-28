@@ -1,3 +1,5 @@
+#encoding: utf-8
+import unicodedata
 import csv
 import json
 import os
@@ -13,9 +15,9 @@ class Converter():
         self.config = json.load(open('./config.json'))
     def setCsvData(self):
         with open('./data.csv', newline='') as csvfile:
-            data = csv.reader(csvfile, delimiter=' ', quotechar='|')
+            data = csv.reader(csvfile, delimiter=',', quotechar='|')
             for row in data:
-                self.dataCsv.append( ', '.join(row).split(',') )
+                self.dataCsv.append( ','.join(row).split(',') )
     def printsDatas(self):
         print( self.final_query )
     def setInsert(self):
@@ -29,18 +31,21 @@ class Converter():
         part_query = []
         for key, value in enumerate(self.config):
             if key != 0:
-                _str_insert = _str_insert + ',' + value +  ''
+                _str_insert = _str_insert + ',' + value 
             else:
-                _str_insert = _str_insert + '' + value +  ''
+                _str_insert = _str_insert + value 
         _str_insert = _str_insert + ")"
         for dc in self.dataCsv:
             final_query = " VALUES ("
             for key, q_s in enumerate(dc):
+                if '\'' in q_s:
+                   q_s = q_s.replace('\'',"\'\'")
+                   q_s = unicodedata.normalize('NFD', q_s).encode('ascii', 'ignore')
                 if key != 0:
-                    final_query = final_query + ',' + q_s
+                    final_query = final_query + ',' + "\'" + str(q_s) + "\'"
                 else:
-                    final_query = final_query + q_s
-            final_query += ")"
+                    final_query = final_query + "\'" + str(q_s) + "\'"
+            final_query += ");"
             part_query.append(final_query)
         final_query = []
         for q in part_query:

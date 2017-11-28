@@ -1,8 +1,13 @@
 [
-    "id",
-    "first_name",
-    "last_name",
-    "phone",
-    "age",
-    "created_at"
+    "inscricao",
+    "cadastro",
+    "tipo",
+    "bairro_nome",
+    "logradouro_nome",
+    "numero",
+    "quadra",
+    "lote",
+    "area_construida",
+    "loteamento_codigo",
+    "loteamento_descricao"
 ]
